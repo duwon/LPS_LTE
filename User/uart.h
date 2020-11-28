@@ -59,6 +59,6 @@ extern uint8_t uartTimeOutCount;
 /* Extern functions ---------------------------------------------------------*/
 void Uart_Init(void);                                                          /*!< UART 관련 설정 초기화 */
 ErrorStatus getByteFromBuffer(volatile uartFIFO_TypeDef *buffer, uint8_t *ch); /*!< 버퍼에서 1Byte 읽기 */
-void initBuffer(volatile uartFIFO_TypeDef *buffer);
+void initBuffer(uartFIFO_TypeDef *buffer);
 
 #endif /* UART_H__ */

@@ -29,7 +29,6 @@ uint8_t uartTimeOutCount = 0; /*!< UART1 (LTE 모뎀) 데이터 수신 시 10으
 
 /* Private functions ---------------------------------------------------------*/
 static ErrorStatus putByteToBuffer(volatile uartFIFO_TypeDef *buffer, uint8_t ch); /*!< 버퍼에 1Byte 쓰기 */
-static uint8_t calChecksum(message_TypeDef *messageFrame);
 
 /* printf IO 사용을 위한 설정 */
 #ifdef __GNUC__
@@ -95,7 +94,7 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
  * 
  * @param buffer 
  */
-void initBuffer(volatile uartFIFO_TypeDef *buffer)
+void initBuffer(uartFIFO_TypeDef *buffer)
 {
   buffer->count = 0U; /* 버퍼에 저장된 데이터 갯수 초기화 */
   buffer->in = 0U;    /* 버퍼 시작 인덱스 초기화*/
